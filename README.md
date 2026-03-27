@@ -14,25 +14,23 @@ When OpenCode finishes a session (`session.idle`):
 
 ## Installation
 
-### Global (works in any project)
+Add to your `opencode.json` (project-level or `~/.config/opencode/opencode.json` for global):
+
+```json
+{
+  "plugin": ["opencode-badger@git+https://github.com/2sem/opencode-badger.git"]
+}
+```
+
+OpenCode installs the plugin automatically on next startup via `bun install`.
+
+### Manual install (no config)
 
 ```bash
 mkdir -p ~/.config/opencode/plugins
 curl -o ~/.config/opencode/plugins/terminal-notify.js \
   https://raw.githubusercontent.com/2sem/opencode-badger/main/.opencode/plugins/terminal-notify.js
 ```
-
-### Project-level
-
-Copy the plugin into your project:
-
-```bash
-mkdir -p .opencode/plugins
-curl -o .opencode/plugins/terminal-notify.js \
-  https://raw.githubusercontent.com/2sem/opencode-badger/main/.opencode/plugins/terminal-notify.js
-```
-
-OpenCode automatically loads any `.js` files found in `.opencode/plugins/` or `~/.config/opencode/plugins/` — no config changes needed.
 
 ## Enable dock badge (one-time macOS setup)
 
