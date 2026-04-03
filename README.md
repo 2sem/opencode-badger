@@ -1,6 +1,6 @@
 # opencode-badger
 
-An [OpenCode](https://opencode.ai) plugin that notifies you when the AI finishes — via a terminal tab indicator and a macOS dock badge.
+An [OpenCode](https://opencode.ai) plugin that notifies you when the AI finishes — via a terminal tab indicator, a macOS dock badge, and a notification message that includes the current folder name when available.
 
 Inspired by Claude Code's behavior of showing a notification icon on the terminal tab and a badge on the dock icon when it finishes a task.
 
@@ -10,7 +10,12 @@ When OpenCode finishes a session (`session.idle`):
 
 1. **Terminal tab notification** — sends a BEL character (`\x07`) to make the terminal tab show a notification dot
 2. **Dock icon bounce** — the terminal's dock icon bounces when it is in the background
-3. **macOS notification** — delivers a native notification via `osascript`, which increments the dock badge counter if enabled
+3. **macOS notification** — delivers a native notification via `osascript`, which increments the dock badge counter if enabled and prefixes the message with the current folder name when it can resolve it
+
+Example notification messages:
+
+- `opencode-badger: Task complete (#3)`
+- `Task complete (#3)` when the plugin cannot determine the folder name
 
 ## Installation
 
